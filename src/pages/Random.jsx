@@ -1,40 +1,35 @@
 import { useState, useEffect } from "react";
-import RandomContent from "../components/RandomContent";
 import axios from "axios";
+
+import RandomContent from "../components/RandomContent";
 
 function Random() {
 
-    const [advice, setAdvice] = useState('');
+    const [state, setState] = useState('');
 
     useEffect(() => {
         fetchAdvice();
     }, [])
 
     const fetchAdvice = () => {
-
         axios.get('https://api.adviceslip.com/advice')
-            .then(response => {
+            .then((response) => {
 
-                const data = response.data.slip.advice;
+                const advice = response.data.slip.advice;
 
-                setAdvice(data);
-
-            }).then((error) => {
+                setState(advice);
+            })
+            .catch((error) => {
                 console.log(error);
             })
-
-
     }
-
 
 
     return (
         <>
-            <section className="hero" id="hero" >
 
-                <RandomContent fetchAdvice={fetchAdvice} advice={advice} />
+            <RandomContent fetchAdvice={fetchAdvice} state={state} />
 
-            </section>
         </>
     )
 

@@ -1,12 +1,16 @@
 
 
-function RandomContent({ fetchAdvice, advice }) {
+function RandomContent({ fetchAdvice, state }) {
 
     return (
         <>
-            <div className="container m-5 p-5 border rounded">
-                <h3 className="text-secondary mb-5 display-6">{advice}</h3>
-                <button className="btn btn-danger" onClick={fetchAdvice}>Random Advice</button>
+            <div className="app">
+                <div className="card">
+                    <h1 className="heading">{state}</h1>
+                    <div className="button" onClick={fetchAdvice}>
+                        <span>GIVE ME ADVICE!</span>
+                    </div>
+                </div>
             </div>
         </>
     )
