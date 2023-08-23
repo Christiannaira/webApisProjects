@@ -1,0 +1,16 @@
+body {
+    background-color: #252525;
+
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 300px;
+    box-shadow: -9px 10px 16px rgba(68, 58, 58, .5);
+}
